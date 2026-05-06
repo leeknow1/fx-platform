@@ -28,3 +28,12 @@ resilience4j:
         max-attempts: 3
         wait-duration: 2s
         enable-exponential-backoff: true
+
+management:
+  tracing:
+    sampling:
+      probability: 1
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name}, %X{traceId:-}, %X{spanId:-}]"
